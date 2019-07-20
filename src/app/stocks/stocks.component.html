@@ -1,0 +1,60 @@
+<!--  <p>{{stock}}</p>  -->
+<!--    
+<div class="stock">
+ <span class="value">{{ stock.value}}</span>
+ <span class="name">{{ stock.name }}</span>
+</div>
+-->
+
+  <input #stockName type="text" name="" value="" placeholder="Enter Stock name">
+  <button type="button" name="button" (click)="this.getStock(stockName.value)"> SEARCH </button>
+
+  <div class="currentStock">
+    <table border="1">
+        <tr *ngIf="this.currentStock!==undefined">
+          <td>{{this.currentStock.name}}</td>
+          <td *ngFor="let v of this.currentStock.price">{{v}}</td>
+        </tr>
+    </table>
+  </div>
+  <!--Task4 updates-->
+  <div class="pastSearches">
+    Past Searches
+    <table border="1">
+      <tr *ngFor="let ps of this.pastStock">
+        <td>{{ps.name}}</td>
+        <td>{{ps.searchTime}}</td>
+        <td *ngFor="let v of pastStock.price">{{v}}</td>
+      </tr>
+    </table>
+  </div>
+<!--
+<div class="currentStock">
+    <table border="1">
+        <tr *nglf="this.currentStock!==undefined">
+          <td>{{this.currentStock.name}}</td>
+          <td *ngFor="let v of this.currentStock.values">{{v}}</td>
+        </tr>
+    </table>
+</div>
+-->
+
+<!--  
+  <div class="stocks">
+  <div class="stock" *ngFor="let stock of stockservice.getStocks()">
+    <span class="keycode">{{ stock.keyCode}}</span>
+    <span class="name">{{ stock.name }}</span>
+  </div>
+</div>
+-->
+<!--Charts-->
+<div>
+  <div style="display: block">
+    <canvas style="height: 10px;width:25px" baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"></canvas>
+  </div>
+</div>
